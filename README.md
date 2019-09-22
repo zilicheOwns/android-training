@@ -17,5 +17,7 @@
 
 * [Hunter](https://github.com/Leaking/Hunter) 比较好的开源学习项目
 
-[贴一张gradle图腾](http://tools.android.com/_/rsrc/1472841748265/tech-docs/new-build-system/build-workflow/Android%20Build%20Process.png?height=400&width=366)
+贴一张gradle图腾
+
+![avatar](http://tools.android.com/_/rsrc/1472841748265/tech-docs/new-build-system/build-workflow/Android%20Build%20Process.png?height=400&width=366)
 
