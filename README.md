@@ -16,3 +16,6 @@
 * [Android修炼手册](https://github.com/5A59/android-training) 对于gradle插件原理，执行过程。gradle打包apk的过程介绍的非常详细。认真学下来，有很大的收获。感谢博主分享。
 
 * [Hunter](https://github.com/Leaking/Hunter) 比较好的开源学习项目
+
+[贴一张gradle图腾](http://tools.android.com/_/rsrc/1472841748265/tech-docs/new-build-system/build-workflow/Android%20Build%20Process.png?height=400&width=366)
+
