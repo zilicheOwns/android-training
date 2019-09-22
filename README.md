@@ -27,3 +27,11 @@ gradle打包流程图
 
 * plugin 如何调试？
 
+![调试步骤](images/WX20190922-224523@2x.png)
+1. 打开Edit Configurations
+2. 创建remote，-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005，这里address自己定。选择Use module classpath。
+3. 终端命令gradle :app:clean -Dorg.gradle.debug=true --no-daemon  直到看到 > Starting Daemon 出现。
+4. 点击调试，就会进入调试模式，打上断点就可以调试了。
+
+
+
