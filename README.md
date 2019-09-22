@@ -17,7 +17,7 @@
 
 * [Hunter](https://github.com/Leaking/Hunter) 比较好的开源学习项目
 
-贴一张gradle图腾
+### Build Workflow
 
 ![avatar](https://upload-images.jianshu.io/upload_images/2516746-fafc29dfa781d1fc.png?imageMogr2/auto-orient/strip|imageView2/2/w/993/format/webp)
 
