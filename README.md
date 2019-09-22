@@ -19,5 +19,5 @@
 
 贴一张gradle图腾
 
-![avatar](http://tools.android.com/_/rsrc/1472841748265/tech-docs/new-build-system/build-workflow/Android%20Build%20Process.png?height=400&width=366)
+![avatar](https://upload-images.jianshu.io/upload_images/2516746-fafc29dfa781d1fc.png?imageMogr2/auto-orient/strip|imageView2/2/w/993/format/webp)
 
