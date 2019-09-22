@@ -25,7 +25,7 @@ gradle打包流程图
 
 ## 3. A&Q
 
-* plugin 如何调试？
+* **plugin 如何调试？**
 
 ![调试步骤](images/WX20190922-224523@2x.png)
 1. 打开Edit Configurations
@@ -34,7 +34,7 @@ gradle打包流程图
 4. 点击调试，就会进入调试模式，打上断点就可以调试了。
 
 
-* Extension 在apply中取值为什么取不到？
+* **Extension 在apply中取值为什么取不到？**
 
 ![extension](images/WX20190922-230105@2x.webp)
-
+当build.gradle apply:':com.example.demoplugin'执行这行代码的时候会走插件的apply方法，extension还没执行，所以取不到值。那要到什么时候才能取得到呢？可以等到掉transform的时候去取，执行到transformTask的时候extension已经执行完了。
