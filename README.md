@@ -10,7 +10,7 @@
 
 * [android plugin DSL](http://google.github.io/android-gradle-dsl/current/com.android.build.gradle.BaseExtension.html#com.android.build.gradle.BaseExtension:jacoco(org.gradle.api.Action))
 
-* [gradle DSL](https://docs.gradle.org/current/dsl/index.html](https://docs.gradle.org/current/dsl/index.html)
+* [gradle DSL](https://docs.gradle.org/current/dsl/index.html)
 
 * [Android修炼手册](https://github.com/5A59/android-training) 对于gradle插件原理，执行过程。gradle打包apk的过程介绍的非常详细。认真学下来，有很大的收获。感谢博主分享。
 
