@@ -34,4 +34,7 @@ gradle打包流程图
 4. 点击调试，就会进入调试模式，打上断点就可以调试了。
 
 
+* Extension 在apply中取值为什么取不到？
+
+![extension](images/WX20190922-230105@2x.webp)
 
