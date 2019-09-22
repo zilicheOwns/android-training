@@ -1,7 +1,7 @@
 # gradle相关学习
 最近一直在怼Android的gradle插件，写了个view防止快速点击的小插件，有groovy和kotlin版本。直戳「[FunctionPlugin](https://github.com/zilicheOwns/SingleClickPlugin)」，持续更新中。
 
-记录分享一下最近gradle的学习过程。遇到了很多坑，发现最合理的学习方法就是看源码，百度google可以用，但是一定要经过自己验证得出自己的结论，否则很容易被坑，事倍功半，得不偿失。
+记录分享一下最近gradle的学习过程。遇到了很多坑，发现最合理的学习方法就是看源码，百度google可以用，但要拒绝ctrlC & ctrlV，一定要经过自己验证得出自己的结论，否则很容易被坑，事倍功半，得不偿失。
 
 * [gradle官网 ](https://docs.gradle.org/current/userguide/getting_started.html)
 
