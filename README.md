@@ -33,6 +33,8 @@ gradle打包流程图
 3. 终端命令gradle :app:clean -Dorg.gradle.debug=true --no-daemon  直到看到 > Starting Daemon 出现。
 4. 点击调试，就会进入调试模式，打上断点就可以调试了。
 
+我在调试的时候发现transform怎么也进不去，google搜了很久没有搜到答案，可能姿势不太对，后面看看源码得出了结论，transform最后会转变成transformTask，transform方法相当于TaskAction，gradle在confingBuild阶段将脚本编译成字节码然后执行apply，仅仅是crateTask，并没有执行taskAction。 所以这就解释了调试不会走到transform方法里了。
+
 
 * **Extension 在apply中取值为什么取不到？**
 ```
