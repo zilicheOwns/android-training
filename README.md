@@ -42,34 +42,9 @@ class DemoPlugin implements Plugin<Project> {
 
     @Override
     void apply(Project project) {
-        //先判断project是否有这些插件
-        def isApp = project.plugins.hasPlugin(AppPlugin)
-        if (!isApp && !project.plugins.hasPlugin(LibraryPlugin) && !project.plugins.hasPlugin(TestPlugin)) {
-            throw new GradleException("android plugin must be required.")
-        }
-
+        //为什么singleExtension取不到值
         SingleExtension singleExt = project.extensions.create("singleExt", SingleExtension.class)
         project.logger.error("singleExt is " + singleExt.debug)
-
-        if (isApp) {
-            Logger.make(project)
-            Logger.e("current project name is " + project.getName())
-            def android = project.extensions.getByType(AppExtension)
-            //设置javaCompileOptions.annotationProcessorOptions
-            android.defaultConfig.javaCompileOptions.annotationProcessorOptions.argument(APT_OPTION_NAME, project.name)
-            android.productFlavors.all {
-                it.javaCompileOptions.annotationProcessorOptions.argument(APT_OPTION_NAME, project.name)
-            }
-            android.registerTransform(new SingleClickTransform(project))
-
-            android.getTransforms().each {
-            }
-
-//            android.applicationVariants.all { variant ->
-//                def variantName = variant.name.capitalize()
-//                project.logger.error("variant name is " + variantName)
-//            }
-        }
     }
 }
 ```
