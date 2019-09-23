@@ -51,3 +51,53 @@ class DemoPlugin implements Plugin<Project> {
 }
 ```
 之前我在apply方法去取singleExtension的值，然后传给transform，发现这样是取不到值的，当build.gradle apply:':com.example.demoplugin'执行这行代码的时候会走插件的apply方法，extension还没执行，所以取不到值。那要到什么时候才能取得到呢？可以等到掉transform的时候去取，执行到transformTask的时候extension已经执行完了。
+
+* **看到app/build.gradle引用插件，还看到library/build.gradle也引用了插件，是每个build.gradle都需要引用，还是只需要在app引用？**
+
+这个先看transform的ScopeType, 这里我用了SCOPE_FULL_PROJECT。SCOPE_FULL_PROJECT包含了PROJECT，SUB_PROJECTS，EXTERNAL_LIBRARIES。
+```
+enum Scope implements ScopeType {
+        /** Only the project (module) content */
+        PROJECT(0x01),
+        /** Only the sub-projects (other modules) */
+        SUB_PROJECTS(0x04),
+        /** Only the external libraries */
+        EXTERNAL_LIBRARIES(0x10),
+        /** Code that is being tested by the current variant, including dependencies */
+        TESTED_CODE(0x20),
+        /** Local or remote dependencies that are provided-only */
+        PROVIDED_ONLY(0x40),
+
+        /**
+         * Only the project's local dependencies (local jars)
+         *
+         * @deprecated local dependencies are now processed as {@link #EXTERNAL_LIBRARIES}
+         */
+        @Deprecated
+        PROJECT_LOCAL_DEPS(0x02),
+        /**
+         * Only the sub-projects's local dependencies (local jars).
+         *
+         * @deprecated local dependencies are now processed as {@link #EXTERNAL_LIBRARIES}
+         */
+        @Deprecated
+        SUB_PROJECTS_LOCAL_DEPS(0x08);
+
+
+    //transform
+    @Override
+    Set<? super QualifiedContent.Scope> getScopes() {
+        return TransformManager.SCOPE_FULL_PROJECT
+    }
+    
+    public static final Set<Scope> SCOPE_FULL_PROJECT =
+           Sets.immutableEnumSet(
+                  Scope.PROJECT,
+                  Scope.SUB_PROJECTS,
+                  Scope.EXTERNAL_LIBRARIES);
+```
+在app/build.gradle引用插件，其他modlue不应用插件，配置SCOPE_FULL_PROJECT，本module（app）会当成Directory输入，而其他module会当成第三方jar输入。也会全部扫描。如果说你在所有的module要引用插件，module都当成Directory输入的话需要重新配置Scope。但是第三方jar要在app module处理。怎么输入可以自定义，至于那种好，仁者见仁，智者见智啊，只在一处引用对于协同开发来说好一点点，但缺点是扫描jar包需要解压jar遍历处理class文件,然后打包。directory输入速度要快一点。缺点就是每个地方都需要引用插件。
+
+
+
+
