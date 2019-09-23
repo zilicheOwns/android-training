@@ -52,7 +52,7 @@ class DemoPlugin implements Plugin<Project> {
 ```
 之前我在apply方法去取singleExtension的值，然后传给transform，发现这样是取不到值的，当build.gradle apply:':com.example.demoplugin'执行这行代码的时候会走插件的apply方法，extension还没执行，所以取不到值。那要到什么时候才能取得到呢？可以等到掉transform的时候去取，执行到transformTask的时候extension已经执行完了。
 
-* **看到app/build.gradle引用插件，还看到library/build.gradle也引用了插件，是每个build.gradle都需要引用，还是只需要在app引用？**
+* **有些看到只有application引用插件，library不引用，也还看到application/library都引用了插件，是每个module的build.gradle都需要引用，还是只需要在application引用？**
 
 这个先看transform的ScopeType, 这里我用了SCOPE_FULL_PROJECT。SCOPE_FULL_PROJECT包含了PROJECT，SUB_PROJECTS，EXTERNAL_LIBRARIES。
 ```
