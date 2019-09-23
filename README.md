@@ -48,4 +48,4 @@ class DemoPlugin implements Plugin<Project> {
     }
 }
 ```
-当build.gradle apply:':com.example.demoplugin'执行这行代码的时候会走插件的apply方法，extension还没执行，所以取不到值。那要到什么时候才能取得到呢？可以等到掉transform的时候去取，执行到transformTask的时候extension已经执行完了。
+之前我在apply方法去取singleExtension的值，然后传给transform，发现这样是取不到值的，当build.gradle apply:':com.example.demoplugin'执行这行代码的时候会走插件的apply方法，extension还没执行，所以取不到值。那要到什么时候才能取得到呢？可以等到掉transform的时候去取，执行到transformTask的时候extension已经执行完了。
