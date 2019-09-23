@@ -35,6 +35,42 @@ gradle打包流程图
 
 
 * **Extension 在apply中取值为什么取不到？**
+```
+class DemoPlugin implements Plugin<Project> {
 
-![extension](images/WX20190922-230105@2x.webp)
+    String APT_OPTION_NAME = "moduleName"
+
+    @Override
+    void apply(Project project) {
+        //先判断project是否有这些插件
+        def isApp = project.plugins.hasPlugin(AppPlugin)
+        if (!isApp && !project.plugins.hasPlugin(LibraryPlugin) && !project.plugins.hasPlugin(TestPlugin)) {
+            throw new GradleException("android plugin must be required.")
+        }
+
+        SingleExtension singleExt = project.extensions.create("singleExt", SingleExtension.class)
+        project.logger.error("singleExt is " + singleExt.debug)
+
+        if (isApp) {
+            Logger.make(project)
+            Logger.e("current project name is " + project.getName())
+            def android = project.extensions.getByType(AppExtension)
+            //设置javaCompileOptions.annotationProcessorOptions
+            android.defaultConfig.javaCompileOptions.annotationProcessorOptions.argument(APT_OPTION_NAME, project.name)
+            android.productFlavors.all {
+                it.javaCompileOptions.annotationProcessorOptions.argument(APT_OPTION_NAME, project.name)
+            }
+            android.registerTransform(new SingleClickTransform(project))
+
+            android.getTransforms().each {
+            }
+
+//            android.applicationVariants.all { variant ->
+//                def variantName = variant.name.capitalize()
+//                project.logger.error("variant name is " + variantName)
+//            }
+        }
+    }
+}
+```
 当build.gradle apply:':com.example.demoplugin'执行这行代码的时候会走插件的apply方法，extension还没执行，所以取不到值。那要到什么时候才能取得到呢？可以等到掉transform的时候去取，执行到transformTask的时候extension已经执行完了。
