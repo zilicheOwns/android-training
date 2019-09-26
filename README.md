@@ -100,6 +100,9 @@ enum Scope implements ScopeType {
 ```
 在app/build.gradle引用插件，其他modlue不应用插件，配置SCOPE_FULL_PROJECT，本module（app）会当成Directory输入，而其他module会当成第三方jar输入。也会全部扫描。如果说你在所有的module要引用插件，module都当成Directory输入的话需要重新配置Scope。但是第三方jar要在app module处理。怎么输入可以自定义，至于那种好，仁者见仁，智者见智，只在一处引用对于协同开发来说好一点点，但缺点是哪怕是改了一个文件，都得扫描解压jar遍历处理class文件,然后压缩。directory输入不需要解压缩，性能自然要好一些。缺点就是每个地方都需要引用插件。
 
+* **ASM技术晦涩难懂，有什么好的学习技巧？**
 
 
+Android studio安装插件ASM Bytecode Outline。先编译你的Java文件，然后右键打开选择面板。就可以看到字节码，和asm生成的字节码了。直接拷贝用就可以了。
 
+![outline](images/WechatIMG9.jpeg)
