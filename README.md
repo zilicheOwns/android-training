@@ -1,6 +1,17 @@
 ## 1. Android相关学习
  ### Android基础篇
    * [Handler消息机制原理分析](https://github.com/zilicheOwns/android-training/blob/master/Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6.md)
+   * Android操作系统基础
+   * Android同步机制经典实现
+   * Android进程与线程理解
+   
+### Android Jetpack篇
+   * 利用LiveData打造自己的EventBus
+   * 深入浅出WorkManager
+   * 利用ViewModel、LiveData、DataBinding打造MMVM
+   * Lifecycle原理分析
+   * Room持久化数据库源码分析
+   
 
 ## 2. gradle相关学习
 最近一直在怼Android的gradle插件，写了个view防止快速点击的插件，考虑了并发编译，增量编译，使用了ASM插桩，目前有groovy和kotlin版本。直戳「[FunctionPlugin](https://github.com/zilicheOwns/SingleClickPlugin)」，持续更新中。
