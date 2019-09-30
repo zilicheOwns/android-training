@@ -8,7 +8,7 @@
 ### Android Jetpack篇
    * 利用LiveData打造自己的EventBus
    * 深入浅出WorkManager
-   * 利用ViewModel、LiveData、DataBinding打造MMVM
+   * 利用ViewModel、LiveData、DataBinding打造MVVM
    * Lifecycle原理分析
    * Room持久化数据库源码分析
    
