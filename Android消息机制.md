@@ -1,3 +1,5 @@
+                          ## Android Handler消息机制原理分析
+
 ### 预备知识
 1. Android开发的基础知识
 2. Handler、MessageQueue、Runnable、Looper的基本概念
