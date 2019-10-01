@@ -8,7 +8,7 @@
    * Android AMS探究
    
 ### Android Jetpack篇
-   * 利用LiveData打造自己的EventBus
+   * [利用LiveData打造自己的EventBus](https://github.com/zilicheOwns/android-training/blob/master/blog/%E7%94%A8LiveData%E6%89%93%E9%80%A0%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84EventBus.md)
    * 深入浅出WorkManager
    * 利用ViewModel、LiveData、DataBinding打造MVVM
    * Lifecycle原理分析
