@@ -4,6 +4,8 @@
    * Android操作系统基础
    * Android同步机制经典实现
    * Android进程与线程理解
+   * Android PMS探究
+   * Android AMS探究
    
 ### Android Jetpack篇
    * 利用LiveData打造自己的EventBus
@@ -11,6 +13,14 @@
    * 利用ViewModel、LiveData、DataBinding打造MVVM
    * Lifecycle原理分析
    * Room持久化数据库源码分析
+   
+### Android 进阶篇
+   * 插件化
+   * 热修复
+   * 组件化
+   * 自定义View
+   * Android 打包
+   * 设计模式
    
 
 ## 2. gradle相关学习
