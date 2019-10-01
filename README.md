@@ -1,6 +1,6 @@
 ## 1. Android相关学习
  ### Android基础篇
-   * [Handler消息机制原理分析](https://github.com/zilicheOwns/android-training/blob/master/Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6.md)
+   * [Handler消息机制原理分析](https://github.com/zilicheOwns/android-training/blog/blob/master/Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6.md)
    * Android操作系统基础
    * Android同步机制经典实现
    * Android进程与线程理解
