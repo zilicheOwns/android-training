@@ -91,14 +91,14 @@ public interface EventDefineOfDemoEvents extends IEventsDefine {
 //发送消息
         EventBus
                 .get()
-                .of(EventDefineOfTimelineEvents.class)
+                .of(EventDefineOfDemoEvents.class)
                 .EVENT1()
                 .post(new Goods("23423432"));
 
  //订阅消息
         EventBus
                 .get()
-                .of(EventDefineOfTimelineEvents.class)
+                .of(EventDefineOfDemoEvents.class)
                 .EVENT1()
                 .observe(this, goods -> {
                     Log.e("Main", "goods1111 is " + goods);
